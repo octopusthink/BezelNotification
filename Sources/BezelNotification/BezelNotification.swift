@@ -407,14 +407,13 @@ public class BHBezelContentView: NSView {
             let bezelSize = parameters.size.cgSize
             let bezelBounds = NSRect(origin: .zero, size: bezelSize)
             let bezelCenterX = bezelBounds.midX
-            let messageLabelTop = textBounds.maxY;
-            let halfwayBetweenLabelTopAndBezelTop = (bezelBounds.maxY + messageLabelTop) / 2
-            
+            let bezelCenterY = bezelBounds.midY
+
             let iconSize = NSSize(scaling: icon.size, toFitWithin: bezelSize, approach: .scaleProportionallyDown)
-            
-            
+
+
             let iconBottomLeftCorner = NSPoint(x: bezelCenterX - (iconSize.width / 2),
-                                               y: halfwayBetweenLabelTopAndBezelTop - (iconSize.height / 2))
+                                               y: bezelCenterY - (iconSize.height / 2))
             
             icon.draw(
                 in: NSRect(origin: iconBottomLeftCorner, size: iconSize),
